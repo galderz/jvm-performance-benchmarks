@@ -80,6 +80,18 @@ public class IfConditionalBranchBenchmark {
     return sum;
   }
 
+  @Benchmark
+  public int no_if_branch_multiply() {
+    int sum = 0;
+
+    for (final int i : array) {
+      int value = i * 11;
+      sum += value;
+    }
+
+    return sum;
+  }
+
   // all values are less than the THRESHOLD, therefore the condition is true and the branch is
   // always taken. This could be equivalent or very close to no_if_branch()
   @Benchmark
